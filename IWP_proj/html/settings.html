@@ -1,0 +1,266 @@
+<html>
+<head>
+  <link rel="shortcut icon" href="uplogo.ico" />
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="footer.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+	<link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+  <link href="button.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+  <title>
+    Settings
+  </title>
+</head>
+<style>
+body{
+
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+}
+.head
+{
+  font-family: "Courier New", Courier, monospace;
+  font-size: 50px;
+  color:#696969;
+
+}
+.prop{
+  height: 30px;
+  width:300px;
+
+  float:left;
+  margin-left: 200px;
+  margin-right: 30px;
+  text-align: left;
+  font-size: 25px;
+  font-family: Comic Sans MS ;
+  color: #696969;
+
+}
+.val{
+    padding: 0;
+     height: 40px;
+     width: 350px;
+ 	   border-radius: 5px;
+     position: relative;
+     left: 0;
+     outline: none;
+     border: 1px solid #cdcdcd;
+     border-color: rgba(0,0,0,.15);
+     background-color: #34495E;
+     font-size: 20px;
+ 	   color: #cdcdcd;
+
+ 	}
+
+  input:invalid {
+      border-color:red;
+      border-width: 3px;
+  }
+</style>
+<body bgcolor="#555">
+  <!--------------------------------------------------------------------------------------------------->
+<header>
+<ul>
+  <a href="hgfd"><img src="images/logo.png"height="40" width="160" align="left" id="logo" ></a>
+
+  <li class="name">
+
+<form method="get" action="/search" id="searchbox5">
+    <input id="search5" name="q" type="text" size="50" placeholder="Search..." />
+
+</form>
+
+  </li>
+
+  <li class="name"><a href="signin.html">Home</a></li>
+
+</ul>
+</header>
+<!--------------------------------------------------------------------------------------------------->
+<div style="background-color:#FFFFFF;">
+  <br>
+  <br>
+  <br>
+<center>
+  <p class="head">-Edit Your Profile-</p>
+</center>
+<div class="prop">
+<b> First Name</b>
+</div>
+
+<div style="height:30px;width=100px;">
+  <input ="text" class="val" id="fn" disabled=disabled pattern="[A-Za-z]{1,20}">
+<div style="margin-top:3px;position:relative;float:right;margin-right:350px;">
+  <button style="height:34px;width:34px;padding:0px 0px 0px 0px;" onclick="enable1()" ><img src="images/edit.png" height="30" width="30" style=""></button>
+  <script>
+  function enable1()
+  {
+    document.getElementById('fn').disabled=false;
+  }
+  </script>
+</div>
+</div>
+<br>
+<div class="prop">
+<b>  Last Name</b>
+</div>
+
+<div style="height:30px;width=100px;">
+  <input ="text" class="val" id="ln" disabled=disabled pattern="[A-Za-z]{1,20}">
+
+  <div style="margin-top:3px;position:relative;float:right;margin-right:350px;">
+    <button style="height:34px;width:34px;padding:0px 0px 0px 0px;" onclick="enable2()"><img src="images/edit.png" height="30" width="30" style=""></button>
+    <script>
+    function enable2()
+    {
+      document.getElementById('ln').disabled=false;
+    }
+    </script>
+
+  </div>
+
+</div>
+<br>
+<div class="prop">
+<b> Username</b>
+</div>
+
+<div style="height:30px;width=100px;">
+  <input ="text" class="val" id="un" disabled=disabled pattern="^[A-Za-z0-9_]{1,32}$">
+
+  <div style="margin-top:3px;position:relative;float:right;margin-right:350px;">
+    <button style="height:34px;width:34px;padding:0px 0px 0px 0px;" onclick="enable3()"><img src="images/edit.png" height="30" width="30" style=""></button>
+    <script>
+    function enable3()
+    {
+      document.getElementById('un').disabled=false;
+    }
+    </script>
+  </div>
+
+
+</div>
+<br>
+<div class="prop">
+<b> Password</b>
+</div>
+
+<div style="height:30px;width=100px;">
+  <input ="text" class="val" placeholder="*******" disabled="True" id="pwd" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$">
+
+  <div style="margin-top:3px;position:relative;float:right;margin-right:350px;">
+    <button style="height:34px;width:34px;padding:0px 0px 0px 0px;" onclick="enable4()" ><img src="images/edit.png" height="30" width="30" style=""></button>
+    <script>
+    function enable4()
+    { prompt(" Current Password")
+      document.getElementById('pwd').disabled=false;
+      document.getElementById('pwd1').disabled=false;
+    }
+    </script>
+  </div>
+
+</div>
+<br>
+<div class="prop">
+<b> Confirm Password</b>
+</div>
+
+<div style="height:30px;width=100px;">
+  <input ="text" class="val" placeholder="*******" id="pwd1" disabled="True" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" onkeyup="check_pass()">
+
+  <script>
+  function check_pass() {
+    if (document.getElementById('pwd').value !=document.getElementById('pwd1').value) {
+        document.getElementById('error').innerHTML=" <img src='images/false.png' height=15 width=15>  Password doesn't match";
+        document.getElementById('error').style.color="#e82727";
+    }
+    else {
+        document.getElementById('error').innerHTML="<img src='images/true.png' height=15 width=15> Matched ";
+        document.getElementById('error').style.color="#42c428";
+    }
+}
+  </script>
+<b><span id="error" > </span></b>
+
+</div>
+
+
+
+
+<br>
+<br>
+<center>
+
+<div class="button">
+  <a href="#">Update <span class="shift">›</span></a>
+  <div class="mask"></div>
+</div>
+
+</center>
+<br>
+<br>
+<br>
+
+</div>
+
+
+
+
+
+
+
+
+
+<!--------------------------------------------------------------------------------------------------->
+<footer class="footer-distributed">
+  <div class="footer-left">
+				<a href="hgfd"><img src="images/logo.png"height="60" width="230" align="left" id="logo" ></a><br><br><br><br><br>
+        <p class="footer-links">
+					<a href="main.html">Home</a>
+					·
+					<a href="terms.html">Terms of Service</a>
+					·
+					<a href="aboutus.html">About</a>
+					·
+					<a href="faq.html">FaQ</a>
+					·
+					<a href="privacy.html">Privacy</a>
+				</p>
+				<p class="footer-company-name">VISTA &copy; 2017</p>
+			</div>
+	<div class="footer-center">
+				<div>
+					<i class="fa fa-map-marker"></i>
+					<p><span>K-608,VIT University</span> Vellore, Tamil Nadu</p>
+				</div>
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>+91-9585438508<br>+91-9790097468<br>+91-9585371755</p>
+				</div>
+
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:support@company.com">help@vista.com</a></p>
+				</div>
+			</div>
+			<div class="footer-right">
+
+				<p class="footer-company-about">
+					<span>About the Website</span>
+          Write |
+          Read |
+          Share <br>
+          <br>
+				</p>
+				<div class="footer-icons">
+					<a href="#"><i class="fa fa-facebook"></i></a>
+					<a href="#"><i class="fa fa-twitter"></i></a>
+					<a href="#"><i class="fa fa-linkedin"></i></a>
+					<a href="#"><i class="fa fa-github"></i></a>
+				</div>
+			</div>
+		</footer>
+</body>
